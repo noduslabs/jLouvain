@@ -87,14 +87,15 @@
   d3.select('#comm_detect').on('click', function(){
     //Communnity detection on click event
     var community_assignment_result = community();
-    var node_ids = Object.keys(community_assignment_result);
+    var node_ids = Object.keys(community_assignment_result['communities']);
 
-    console.log('Resulting Community Data', community_assignment_result);
+    console.log('Resulting Community Data', community_assignment_result['communities']);
+    console.log('Resulting Modularity Data', community_assignment_result['modularity']);
 
     var max_community_number = 0;
     node_ids.forEach(function(d){
-      original_node_data[d].community = community_assignment_result[d];
-      max_community_number = max_community_number < community_assignment_result[d] ? community_assignment_result[d]: max_community_number;
+      original_node_data[d].community = community_assignment_result['communities'][d];
+      max_community_number = max_community_number < community_assignment_result['communities'][d] ? community_assignment_result['communities'][d]: max_community_number;
     });
 
     console.log(max_community_number);
