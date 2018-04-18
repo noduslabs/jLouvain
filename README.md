@@ -40,6 +40,8 @@ var edge_data = [
 ```javascript
 	var community = jLouvain().nodes(node_data).edges(edge_data).partition_init(init_part);
     	var result  = community();
+	var communities = result['communities'];
+	var graph_modularity = result['modularity'];
 ```
 ## Example
 See **example.html**, use the console to view the raw input data and raw output.
