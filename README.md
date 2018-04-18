@@ -40,7 +40,14 @@ var edge_data = [
 ```javascript
 	var community = jLouvain().nodes(node_data).edges(edge_data).partition_init(init_part);
     	var result  = community();
-	var communities = result['communities'];
+	
+	// Exposes the nodes and the communities they belong to 
+	var communities = result['communities']; 
+	
+	// Exposes the last measure of modularity of the graph
+	// If it is close to 0.0 most of the nodes belong to the same community
+	// If it is about 0.4 and above the graph has a highly pronounced community structure
+	// Can be used to quickly estimate how diversified the graph is
 	var graph_modularity = result['modularity'];
 ```
 ## Example
